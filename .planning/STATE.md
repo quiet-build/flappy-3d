@@ -1,19 +1,42 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.8
-milestone_name: — Stickiness + Hygiene Pass
+milestone: babylon-component
+milestone_name: Babylon rebuild and Mini Arcade component
 status: code_complete
-stopped_at: All 9 v1.8 features shipped (workflow change pending user push)
-last_updated: "2026-05-03T05:35:00Z"
-progress:
-  total_phases: 20
-  completed_phases: 20
-  total_plans: 36
-  completed_plans: 36
-  percent: 100
+stopped_at: Source/build audit passed; physical-device acceptance remains pending
+last_updated: "2026-10-02"
 ---
 
 # Project State — Flappy 3D
+
+## Current verified state — 2026-10-02
+
+- Local `main` and the 2026-10-02 remote snapshot match `549b6b26cd947565fc3fbd4da39d710acd035fbb`.
+- Current stack: Babylon.js 9 + TypeScript + Vite; Preact overlays, XState,
+  GSAP and Howler. `src/render/createEngine.ts` owns the Babylon engine/scene;
+  `createPipeline.ts` owns quality-tier bloom/FXAA/vignette;
+  `src/particles/ParticleEmitter.ts` uses Babylon particles. Three.js,
+  EffectComposer and three.quarks below belong to the superseded implementation.
+- `src/systems/CollisionSystem.ts` checks logical bird-circle versus pipe
+  shaft/cap rectangles; it does not use THREE.Box3 or render-frame matrices.
+- The current deployment caller targets Cloudflare Pages `flappy-3d` and retains
+  GitHub Pages support (`pages-base: /flappy-3d/`) through the pinned reusable
+  arcade workflow. Production publication is CI-only; see README.md and SOURCE.md.
+- Play: https://playminiarcade.com/game/flappy . The 2026-10-02 live
+  snapshot returned 200 for this route and the Cloudflare component; this pass
+  did not independently rerun hosted CI or browser acceptance.
+- Local audit passed TypeScript/build, three redirect tests and the bundle gate:
+  **533.96 KB gzip / 600 KB limit**. Browser suites were deliberately not rerun.
+- Next: physical iPhone/Android input, iOS audio, normal pause/retry, resource
+  stability and device frame-rate acceptance. No new implementation is inferred
+  from the old phase plans below.
+
+## Historical planning record — 2026-05-03
+
+Everything below is the retained April–May 2026 planning/progress snapshot,
+including its internally inconsistent phase status. It is not the current
+engine, bundle budget, release status or an active request to resume a phase.
+The current code and verification summary above supersede those claims.
 
 **Last updated:** 2026-05-03
 **Updated by:** v1.8 ROADMAP draft
