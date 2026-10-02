@@ -159,7 +159,7 @@ belong in `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets.
 
 `vite.config.ts` uses `VITE_BASE` for both asset base and PWA start URL/scope:
 `/flappy-3d/` by default for GitHub Pages, `./` for the R2 build. The
-portal loads `https://assets.playminiarcade.com/channels/flappy.js`. The 2026-10-02 live snapshot returned 200 for the portal route and component with
+R2 target is `https://assets.playminiarcade.com/channels/flappy.js`; the production portal keeps its previous Pages entry until CDN verification passes in CI. The 2026-10-02 live snapshot returned 200 for the portal route and component with
 JavaScript/CORS headers; this does not prove physical-device gameplay.
 
 For local preview, use the build/preview commands above. Do not publish from a
