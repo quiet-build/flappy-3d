@@ -147,7 +147,7 @@ Listener stability check (Chrome only):
 Production publication is CI-only. `.github/workflows/deploy.yml` runs on main
 pushes and manual Actions dispatches. It calls the pinned
 `quiet-build/.github` arcade-component workflow at
-`8f75852775e54f88430743f90ef83ad1a936b14f`, targeting R2 game channel
+`d555c9216c192be3b50cf415686981099d5c6f1d`, targeting R2 game channel
 `flappy` and retaining GitHub Pages support with `pages-base: /flappy-3d/`.
 Cloudflare publication now uses complete immutable R2 versions.
 
