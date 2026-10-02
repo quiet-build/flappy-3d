@@ -5,7 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // Deploy targets serve at different paths:
 //   - GitHub Pages: https://<user>.github.io/flappy-3d/  → base = /flappy-3d/
-//   - Cloudflare Pages: https://flappy-3d.pages.dev/      → base = /
+//   - R2: immutable per-release directory → base = ./
 // Set VITE_BASE in env to override (CI-driven). Default keeps GH Pages working.
 const BASE = process.env.VITE_BASE ?? '/flappy-3d/'
 

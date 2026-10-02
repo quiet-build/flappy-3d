@@ -147,9 +147,9 @@ Listener stability check (Chrome only):
 Production publication is CI-only. `.github/workflows/deploy.yml` runs on main
 pushes and manual Actions dispatches. It calls the pinned
 `quiet-build/.github` arcade-component workflow at
-`8286c17efa989220f88548ffb901f742e3302f3e`, targeting Cloudflare Pages project
-`flappy-3d` and retaining GitHub Pages support with `pages-base: /flappy-3d/`.
-Cloudflare Pages is already configured, not a future migration.
+`8f75852775e54f88430743f90ef83ad1a936b14f`, targeting R2 game channel
+`flappy` and retaining GitHub Pages support with `pages-base: /flappy-3d/`.
+Cloudflare publication now uses complete immutable R2 versions.
 
 The caller requires redirect and gameplay checks before build, component and
 standalone cream-UI/side-camera checks after build, the 600 KB bundle gate and a
@@ -158,8 +158,8 @@ standalone cream-UI/side-camera checks after build, the 600 KB bundle gate and a
 belong in `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets.
 
 `vite.config.ts` uses `VITE_BASE` for both asset base and PWA start URL/scope:
-`/flappy-3d/` by default for GitHub Pages, `/` for the Cloudflare build. The
-portal loads `https://flappy-3d.pages.dev/component.js`. The 2026-10-02 live snapshot returned 200 for the portal route and component with
+`/flappy-3d/` by default for GitHub Pages, `./` for the R2 build. The
+portal loads `https://assets.playminiarcade.com/channels/flappy.js`. The 2026-10-02 live snapshot returned 200 for the portal route and component with
 JavaScript/CORS headers; this does not prove physical-device gameplay.
 
 For local preview, use the build/preview commands above. Do not publish from a
