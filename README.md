@@ -4,7 +4,7 @@ A 3D Flappy Bird-style PWA built with Babylon.js 9, TypeScript and Vite, with Pr
 
 **Play:** https://playminiarcade.com/game/flappy
 
-**Standalone:** https://flappy-3d.pages.dev/
+**Play:** https://playminiarcade.com/game/flappy
 
 Current documentation checked 2026-10-02 against `549b6b2`, the local workflow,
 and the matching remote-ref and live route/component snapshots from this audit.
